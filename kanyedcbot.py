@@ -48,7 +48,7 @@ def get_kayne_tweet():
 	kayne_tweet = requests.get("https://api.kanye.rest/").json()
 	return kayne_tweet['quote']
 
-@tasks.loop(seconds=5)
+@tasks.loop(hours=15)
 async def send_kanye_quote(channel):
 	await channel.send(embed=displayembed())
 
